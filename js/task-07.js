@@ -3,3 +3,15 @@
 // property. As a result, the text size will change responding to scrollbar dragging.
 
 // -----------------------------------------------------------------------------
+
+const textScroll = document.querySelector(
+ 'input#font-size-control'
+);
+const textOutput =
+ document.querySelector('span#text');
+
+textScroll.addEventListener(
+ 'input',
+ () =>
+  (textOutput.style.fontSize = `${textScroll.value}px`)
+);

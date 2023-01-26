@@ -6,45 +6,27 @@
 
 // -----------------------------------------------------------------------------
 
-function countCategories() {
- const allCategories = document.querySelectorAll(
-  'ul#categories .item'
- );
- return console.log(
-  `Number of categories: ${allCategories.length}`
- );
-}
-countCategories();
-
-// ********************
-
 console.log(
  'Number of categories:',
  document.querySelector('ul#categories')
   .childElementCount
 );
 
-// -----------------------------------------------------------------------------
+// ********************
 
-function getCategoryStructure() {
-  console.log('********************');
-  
- const allCategories = document.querySelectorAll(
-  'ul#categories .item'
+const allCategories = document.querySelectorAll(
+ 'ul#categories .item'
+);
+
+allCategories.forEach(category => {
+ const categoryTitel = category.firstElementChild;
+ const categoryList =
+  categoryTitel.nextElementSibling;
+
+ console.log(
+  `Category: ${categoryTitel.textContent}`
  );
-
- allCategories.forEach(category => {
-  const categoryHeader =
-   category.firstElementChild;
-  console.log(
-   `Categiry: ${categoryHeader.textContent}`
-  );
-
-  const categoryList =
-   categoryHeader.nextElementSibling;
-  console.log(
-   `Elements: ${categoryList.childElementCount}`
-  );
- });
-}
-getCategoryStructure();
+ console.log(
+  `Elements: ${categoryList.childElementCount}`
+ );
+});
