@@ -36,33 +36,29 @@ const ref = {
 
 ref.createBtnEl.addEventListener(
  'click',
- getAmount
+ createBoxes
 );
 
-function getAmount() {
- const amount = ref.inputEl.value;
- createBoxes(amount);
-
- function createBoxes(amount) {
-  function getRandomHexColor() {
-   return `#${Math.floor(
-    Math.random() * 16777215
-   ).toString(16)}`;
-  }
-  const element = [];
-  let size = 30;
-
-  for (let i = 0; i < amount; i += 1) {
-   const color = getRandomHexColor();
-   element[i] = document.createElement('div');
-   element[i].style.backgroundColor = `${color}`;
-   element[i].style.width = `${size}px`;
-   element[i].style.height = `${size}px`;
-   size += 10;
-  }
-
-  ref.divEl.append(...element);
+function createBoxes(amount) {
+ function getRandomHexColor() {
+  return `#${Math.floor(
+   Math.random() * 16777215
+  ).toString(16)}`;
  }
+ amount = ref.inputEl.value;
+ const element = [];
+ let size = 30;
+
+ for (let i = 0; i < amount; i += 1) {
+  const color = getRandomHexColor();
+  element[i] = document.createElement('div');
+  element[i].style.backgroundColor = `${color}`;
+  element[i].style.width = `${size}px`;
+  element[i].style.height = `${size}px`;
+  size += 10;
+ }
+
+ ref.divEl.append(...element);
 }
 
 ref.destroyBtnEl.addEventListener(
