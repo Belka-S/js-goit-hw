@@ -19,14 +19,9 @@ const ref = {
 };
 
 ref.btnEl.addEventListener('click', onBtnClick);
-function onBtnClick(event) {
- function getRandomHexColor() {
-  return `#${Math.floor(
-   Math.random() * 16777215
-  ).toString(16)}`;
- }
- const randomColor = getRandomHexColor();
 
+function onBtnClick(event) {
+ const randomColor = getRandomHexColor();
  ref.bodyEl.style.backgroundColor = randomColor;
  ref.spanEl.textContent = randomColor;
 }

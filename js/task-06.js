@@ -23,7 +23,7 @@ inputEl.addEventListener('focus', () =>
 );
 
 inputEl.addEventListener('blur', () => {
- inputEl.value.length > 0
+ inputEl.value
   ? paintBorder()
   : inputEl.removeAttribute('class');
 });

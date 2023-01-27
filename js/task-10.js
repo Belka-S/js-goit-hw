@@ -39,13 +39,9 @@ ref.createBtnEl.addEventListener(
  createBoxes
 );
 
-function createBoxes(amount) {
- function getRandomHexColor() {
-  return `#${Math.floor(
-   Math.random() * 16777215
-  ).toString(16)}`;
- }
- amount = ref.inputEl.value;
+function createBoxes() {
+ console.log(event);
+ const amount = ref.inputEl.value;
  const element = [];
  let size = 30;
 

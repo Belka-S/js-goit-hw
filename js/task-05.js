@@ -13,8 +13,9 @@ const ref = {
  ),
 };
 
-ref.inputEl.addEventListener(
- 'input',
- () =>
-  (ref.outputEl.textContent = ref.inputEl.value)
-);
+ref.inputEl.addEventListener('input', getName);
+function getName() {
+ ref.outputEl.textContent = ref.inputEl.value
+  ? ref.inputEl.value
+  : 'Anonymous';
+}
