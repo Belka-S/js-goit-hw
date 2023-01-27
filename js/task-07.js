@@ -4,14 +4,16 @@
 
 // -----------------------------------------------------------------------------
 
-const textScroll = document.querySelector(
- 'input#font-size-control'
-);
-const textOutput =
- document.querySelector('span#text');
+const ref = {
+ scrollEl: document.querySelector(
+  'input#font-size-control'
+ ),
+ textOutputEl:
+  document.querySelector('span#text'),
+};
 
-textScroll.addEventListener(
+ref.scrollEl.addEventListener(
  'input',
  () =>
-  (textOutput.style.fontSize = `${textScroll.value}px`)
+  (ref.textOutputEl.style.fontSize = `${ref.scrollEl.value}px`)
 );

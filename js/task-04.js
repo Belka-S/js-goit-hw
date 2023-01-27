@@ -5,25 +5,27 @@
 
 // -----------------------------------------------------------------------------
 
+const ref = {
+ incrBtnEl: document.querySelector(
+  '[data-action="increment"]'
+ ),
+ decrBtnEl: document.querySelector(
+  '[data-action="decrement"]'
+ ),
+};
+
 let counterValue = 0;
 
-const incrementBtn = document.querySelector(
- '[data-action="increment"]'
-);
-const decrementBtn = document.querySelector(
- '[data-action="decrement"]'
-);
-
 function count() {
- incrementBtn === event.currentTarget
+ ref.incrBtnEl === event.currentTarget
   ? (counterValue += 1)
   : (counterValue -= 1);
  document.querySelector('#value').textContent =
   counterValue;
 }
 
-incrementBtn.addEventListener('click', count);
-decrementBtn.addEventListener('click', count);
+ref.incrBtnEl.addEventListener('click', count);
+ref.decrBtnEl.addEventListener('click', count);
 
 // -----------------------------------------------------------------------------
 

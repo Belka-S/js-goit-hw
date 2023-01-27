@@ -18,17 +18,18 @@ const ingredients = [
 
 // -----------------------------------------------------------------------------
 
-function createList(array, selector) {
- const arrayListEl = array.map(element => {
-  const listEl = document.createElement('ul');
-  listEl.textContent = element;
-  listEl.classList.add('item');
-  return listEl;
- });
+const ingredientsElArray = ingredients.map(
+ ingredient => {
+  const ingredientEl =
+   document.createElement('ul');
+  ingredientEl.textContent = ingredient;
+  ingredientEl.classList.add('item');
+  return ingredientEl;
+ }
+);
 
- const list = document.querySelector(selector);
+const list = document.querySelector(
+ 'ul#ingredients'
+);
 
- list.append(...arrayListEl);
-}
-
-createList(ingredients, 'ul#ingredients');
+list.append(...ingredientsElArray);

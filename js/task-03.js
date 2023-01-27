@@ -22,30 +22,26 @@ const images = [
 
 // -----------------------------------------------------------------------------
 
-function makeGalleryMarkup(array) {
- return array
-  .map(
-   ({ url, alt }) =>
-    ` <li class = "gallery__item"><img src="${url}" alt="${alt}"></li>`
-  )
-  .join('');
-}
+const ref = {
+ galleryEl: document.querySelector('ul.gallery'),
+ headEl: document.querySelector('head'),
+};
 
-const gallery =
- document.querySelector('ul.gallery');
-const galleryMurlup = makeGalleryMarkup(images);
+const galleryMarkup = images
+ .map(
+  ({ url, alt }) =>
+   ` <li class = "gallery__item"><img src="${url}" alt="${alt}"></li>`
+ )
+ .join('');
 
-gallery.insertAdjacentHTML(
+ref.galleryEl.insertAdjacentHTML(
  'afterbegin',
- galleryMurlup
+ galleryMarkup
 );
 
-// ********************
-
-const head = document.querySelector('head');
 const galleryStylesCss =
  '<style>img { display: block; width: 100%; height: auto; object-fit: cover;} .gallery { padding: 5px; display: flex; gap: 10px; outline: 1px tomato dashed;} .gallery__item { display: flex; flex-grow: 1; list-style: none;}</style>';
-head.insertAdjacentHTML(
+ref.headEl.insertAdjacentHTML(
  'beforeend',
  galleryStylesCss
 );

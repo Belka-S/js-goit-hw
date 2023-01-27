@@ -4,14 +4,17 @@
 
 // -----------------------------------------------------------------------------
 
-const nameInput = document.querySelector(
- 'input#name-input'
-);
-const nameOutput = document.querySelector(
- 'span#name-output'
-);
+const ref = {
+ inputEl: document.querySelector(
+  'input#name-input'
+ ),
+ outputEl: document.querySelector(
+  'span#name-output'
+ ),
+};
 
-nameInput.addEventListener(
+ref.inputEl.addEventListener(
  'input',
- () => (nameOutput.textContent = nameInput.value)
+ () =>
+  (ref.outputEl.textContent = ref.inputEl.value)
 );

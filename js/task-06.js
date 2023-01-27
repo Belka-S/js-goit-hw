@@ -7,23 +7,23 @@
 
 // -----------------------------------------------------------------------------
 
-const validInput = document.querySelector(
+const inputEl = document.querySelector(
  'input#validation-input'
 );
 
 function paintBorder() {
- validInput.value.length !==
- Number(validInput.dataset.length)
-  ? validInput.classList.add('invalid')
-  : validInput.classList.add('valid');
+ inputEl.value.length !==
+ Number(inputEl.dataset.length)
+  ? inputEl.classList.add('invalid')
+  : inputEl.classList.add('valid');
 }
 
-validInput.addEventListener('focus', () =>
- validInput.removeAttribute('class')
+inputEl.addEventListener('focus', () =>
+ inputEl.removeAttribute('class')
 );
 
-validInput.addEventListener('blur', () => {
- validInput.value.length > 0
+inputEl.addEventListener('blur', () => {
+ inputEl.value.length > 0
   ? paintBorder()
-  : validInput.removeAttribute('class');
+  : inputEl.removeAttribute('class');
 });
