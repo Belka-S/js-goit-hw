@@ -1,3 +1,29 @@
+// const ref = {
+//  galleryEl: document.querySelector('ul.gallery'),
+//  headEl: document.querySelector('head'),
+// };
+
+// const galleryMarkup = images
+//  .map(
+//   ({ url, alt }) =>
+//    ` <li class = "gallery__item"><img src="${url}" alt="${alt}"></li>`
+//  )
+//  .join('');
+
+// ref.galleryEl.insertAdjacentHTML(
+//  'afterbegin',
+//  galleryMarkup
+// );
+
+// const galleryStylesCss =
+//  '<style>img { display: block; width: 100%; height: auto; object-fit: cover;} .gallery { padding: 5px; display: flex; gap: 10px; outline: 1px tomato dashed;} .gallery__item { display: flex; flex-grow: 1; list-style: none;}</style>';
+// ref.headEl.insertAdjacentHTML(
+//  'beforeend',
+//  galleryStylesCss
+// );
+
+// -------------------------------------------------------------------------------------------- //
+
 // Write a script to create a gallery of images from an array of data.
 // There is a list, 'ul.gallery', in HTML.
 // Use an array of objects 'images' to create <img> elements nested in <li>.
@@ -20,49 +46,18 @@ const images = [
  },
 ];
 
-// -----------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------- //
 
-const ref = {
- galleryEl: document.querySelector('ul.gallery'),
- headEl: document.querySelector('head'),
-};
+const ulEl = document.querySelector('ul.gallery');
+console.log(ulEl);
 
-const galleryMarkup = images
- .map(
-  ({ url, alt }) =>
-   ` <li class = "gallery__item"><img src="${url}" alt="${alt}"></li>`
- )
- .join('');
+let galleryMarkup = '';
 
-ref.galleryEl.insertAdjacentHTML(
- 'afterbegin',
+images.forEach(image => {
+ galleryMarkup += `<li><img src="${image.url}}" alt="${image.alt}}"></li>`;
+});
+
+ulEl.insertAdjacentHTML(
+ 'beforeend',
  galleryMarkup
 );
-
-const galleryStylesCss =
- '<style>img { display: block; width: 100%; height: auto; object-fit: cover;} .gallery { padding: 5px; display: flex; gap: 10px; outline: 1px tomato dashed;} .gallery__item { display: flex; flex-grow: 1; list-style: none;}</style>';
-ref.headEl.insertAdjacentHTML(
- 'beforeend',
- galleryStylesCss
-);
-
-// -----------------------------------------------------------------------------
-
-// const head = document.querySelector('head');
-// const galleryStylesCss =
-//  '<link rel="stylesheet" href="css/task-03.css" />';
-// head.insertAdjacentHTML(
-//  'beforeend',
-//  galleryStylesCss
-// );
-
-// -----------------------------------------------------------------------------
-
-// const galleryStylesCss =
-//  document.createElement('link');
-// galleryStylesCss.rel = 'stylesheet';
-// galleryStylesCss.href = '/css/task-03.css';
-
-// document
-//  .querySelector('head')
-//  .append(galleryStylesCss);

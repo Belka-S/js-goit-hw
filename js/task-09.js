@@ -1,3 +1,21 @@
+// const ref = {
+//  bodyEl: document.querySelector('body'),
+//  spanEl: document.querySelector('span.color'),
+//  btnEl: document.querySelector(
+//   'button.change-color'
+//  ),
+// };
+
+// ref.btnEl.addEventListener('click', onBtnClick);
+
+// function onBtnClick(event) {
+//  const randomColor = getRandomHexColor();
+//  ref.bodyEl.style.backgroundColor = randomColor;
+//  ref.spanEl.textContent = randomColor;
+// }
+
+// -------------------------------------------------------------------------------------------- //
+
 // Write a script that changes the background colors of the <body> element via inline
 // style when clicking on button.change - color and outputs the color value to span.color.
 // Use the getRandomHexColor function to generate a random color.
@@ -8,7 +26,7 @@ function getRandomHexColor() {
  ).toString(16)}`;
 }
 
-// -----------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------- //
 
 const ref = {
  bodyEl: document.querySelector('body'),
@@ -17,11 +35,11 @@ const ref = {
   'button.change-color'
  ),
 };
-
+// Object.values(ref).forEach(el => console.log(el));
 ref.btnEl.addEventListener('click', onBtnClick);
 
 function onBtnClick(event) {
- const randomColor = getRandomHexColor();
- ref.bodyEl.style.backgroundColor = randomColor;
- ref.spanEl.textContent = randomColor;
+ const color = getRandomHexColor();
+ ref.bodyEl.style.backgroundColor = color;
+ ref.spanEl.textContent = color;
 }

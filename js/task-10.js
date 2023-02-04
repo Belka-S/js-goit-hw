@@ -1,3 +1,50 @@
+// const ref = {
+//  inputEl: document.querySelector(
+//   '#controls input'
+//  ),
+//  createBtnEl: document.querySelector(
+//   '#controls button[data-create]'
+//  ),
+//  destroyBtnEl: document.querySelector(
+//   '#controls button[data-destroy]'
+//  ),
+//  divEl: document.querySelector('div#boxes'),
+// };
+
+// ref.createBtnEl.addEventListener(
+//  'click',
+//  createBoxes
+// );
+
+// function createBoxes() {
+//  console.log(event);
+//  const amount = ref.inputEl.value;
+//  const element = [];
+//  let size = 30;
+
+//  for (let i = 0; i < amount; i += 1) {
+//   const color = getRandomHexColor();
+//   element[i] = document.createElement('div');
+//   element[i].style.backgroundColor = `${color}`;
+//   element[i].style.width = `${size}px`;
+//   element[i].style.height = `${size}px`;
+//   size += 10;
+//  }
+
+//  ref.divEl.append(...element);
+// }
+
+// ref.destroyBtnEl.addEventListener(
+//  'click',
+//  destroyBoxes
+// );
+
+// function destroyBoxes() {
+//  ref.divEl.innerHTML = '';
+// }
+
+// -------------------------------------------------------------------------------------------- //
+
 // Write a script to create and clear a collection of elements. The user enters the number
 // of elements into input and clicks the New button, after which a collection is rendered.
 // When you click on the Clear button, the collection is cleared.
@@ -14,54 +61,39 @@ function getRandomHexColor() {
   Math.random() * 16777215
  ).toString(16)}`;
 }
-// -----------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------------------------- //
 
 const ref = {
+ divControlsEl: document.querySelector(
+  'div#controls'
+ ),
  inputEl: document.querySelector(
-  '#controls input'
+  'input[type="number"]'
  ),
- createBtnEl: document.querySelector(
-  '#controls button[data-create]'
- ),
- destroyBtnEl: document.querySelector(
-  '#controls button[data-destroy]'
- ),
- divEl: document.querySelector('div#boxes'),
+ divBoxesEl: document.querySelector('div#boxes'),
 };
-
-// Object.keys(ref).forEach(key => {
-//  console.log(key);
-//  console.log(ref[key]);
-// });
-
-ref.createBtnEl.addEventListener(
+// Object.values(ref).forEach(el => console.log(el));
+ref.divControlsEl.addEventListener(
  'click',
- createBoxes
+ onBtnClick
 );
 
-function createBoxes() {
- console.log(event);
- const amount = ref.inputEl.value;
- const element = [];
- let size = 30;
-
- for (let i = 0; i < amount; i += 1) {
-  const color = getRandomHexColor();
-  element[i] = document.createElement('div');
-  element[i].style.backgroundColor = `${color}`;
-  element[i].style.width = `${size}px`;
-  element[i].style.height = `${size}px`;
-  size += 10;
+function onBtnClick(event) {
+ if (event.target.nodeName !== 'BUTTON') {
+  return;
  }
-
- ref.divEl.append(...element);
-}
-
-ref.destroyBtnEl.addEventListener(
- 'click',
- destroyBoxes
-);
-
-function destroyBoxes() {
- ref.divEl.innerHTML = '';
+ let markup = '';
+ for (let i = 0; i < ref.inputEl.value; i += 1) {
+  const color = getRandomHexColor();
+  const size = 30 + i * 10;
+  markup += `<div style="background-color: ${color}; width: ${size}px; height: ${size}px;"></div>`;
+ }
+ const { create, destroy } = event.target.dataset;
+ create ?? (ref.divBoxesEl.innerHTML = '');
+ destroy ??
+  ref.divBoxesEl.insertAdjacentHTML(
+   'afterbegin',
+   markup
+  );
 }

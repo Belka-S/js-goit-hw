@@ -1,3 +1,21 @@
+// const ingredientsElArray = ingredients.map(
+//  ingredient => {
+//   const ingredientEl =
+//    document.createElement('ul');
+//   ingredientEl.textContent = ingredient;
+//   ingredientEl.classList.add('item');
+//   return ingredientEl;
+//  }
+// );
+
+// const list = document.querySelector(
+//  'ul#ingredients'
+// );
+
+// list.append(...ingredientsElArray);
+
+// -------------------------------------------------------------------------------------------- //
+
 // In HTML, there is an empty ul#ingredients list.
 //In JavaScript, there is an array of strings.
 
@@ -16,20 +34,17 @@ const ingredients = [
 // Will add the 'item' class to the element.
 // Then will insert all <li> to the ul#ingredients list in a single operation.
 
-// -----------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------- //
 
-const ingredientsElArray = ingredients.map(
- ingredient => {
-  const ingredientEl =
-   document.createElement('ul');
-  ingredientEl.textContent = ingredient;
-  ingredientEl.classList.add('item');
-  return ingredientEl;
- }
-);
-
-const list = document.querySelector(
+const ulEl = document.querySelector(
  'ul#ingredients'
 );
 
-list.append(...ingredientsElArray);
+const liArray = ingredients.map(ingredient => {
+ const liEl = document.createElement('li');
+ liEl.textContent = ingredient;
+ liEl.className = 'item'; //liEl.classList.add('item');
+ return liEl;
+});
+
+ulEl.append(...liArray);
