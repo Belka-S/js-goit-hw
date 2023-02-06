@@ -54,6 +54,7 @@ function onClick(e) {
 
 function closeOnEsc(modal) {
  const onEsc = e => {
+  removeEventListener('keydown', onEsc);
   if (e.code === 'Escape') {
    modal.close();
   }
