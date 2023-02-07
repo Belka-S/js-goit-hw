@@ -31,13 +31,6 @@ function renderGalleryMarkup(source) {
 renderGalleryMarkup(galleryItems);
 
 // Modal
-function createModalMarkup(source) {
- return basicLightbox.create(
-  `<img src="${source}">`,
-  { closable: true }
- );
-}
-
 galleryEl.addEventListener('click', onClick);
 
 function onClick(e) {
@@ -47,17 +40,23 @@ function onClick(e) {
  if (!source) {
   return;
  }
- const modal = createModalMarkup(source);
- modal.show();
- closeOnEsc(modal);
-}
 
-function closeOnEsc(modal) {
  const onEsc = e => {
-  removeEventListener('keydown', onEsc);
   if (e.code === 'Escape') {
    modal.close();
   }
  };
- addEventListener('keydown', onEsc);
+
+ const modal = basicLightbox.create(
+  `<img src="${source}">`,
+  {
+   closable: true,
+   onShow: () =>
+    addEventListener('keydown', onEsc),
+   onClose: () =>
+    removeEventListener('keydown', onEsc),
+  }
+ );
+
+ modal.show();
 }
