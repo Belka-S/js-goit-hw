@@ -2,10 +2,10 @@
   "name": "parcel_start_kit",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://belka-s.github.io/parcel_start_kit",
+  "homepage": "https://belka-s.github.io/goit-js-hw-08",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel_start_kit/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
   },
   "repository": {
     "type": "git",
@@ -18,40 +18,15 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "simplelightbox": "^2.12.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3",
-    "parcel-plugin-custom-dist-structure": "^1.1.18",
     "parcel-reporter-clean-dist": "^1.0.4",
     "parcel-transformer-hbs": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "customDistStructure": {
-    "config": {
-      ".js": "js",
-      ".css": "css",
-      ".map": "map",
-      "images": [
-        ".jpg",
-        ".png"
-      ],
-      "fonts": [
-        ".woff",
-        ".ttf",
-        ".woff2",
-        ".eot"
-      ],
-      ".fileExtension": "folder/in/dist",
-      "folder/in/dist": [
-        ".file",
-        ".extensions"
-      ]
-    },
-    "options": {
-      "development": true
-    }
-  }
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }
