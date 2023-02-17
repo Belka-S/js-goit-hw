@@ -1,6 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import 'flatpickr/dist/themes/material_blue.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Elements
 const inputEl = document.querySelector('input#datetime-picker');
@@ -34,8 +35,12 @@ function checkSelectedDate(selectedDates) {
   selectedDateMs = selectedDates[0].getTime();
   if (selectedDateMs <= Date.now()) {
     startBtnEl.disabled = true;
-    removeAlert();
-    return makeAlert('Please choose a date in the future');
+
+    makeAlert('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future', {
+      timeout: 5000,
+    });
+    return;
   }
   startBtnEl.disabled = false;
 }
@@ -113,6 +118,7 @@ function convertMs(ms) {
 
 // Alert message
 function makeAlert(message) {
+  removeAlert();
   const alert = document.createElement('p');
   alert.className = 'alert';
   alert.textContent = `${message}`;
