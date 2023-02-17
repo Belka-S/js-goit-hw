@@ -1,11 +1,11 @@
 {
-  "name": "parcel_start_kit",
+  "name": "goit-js-hw-09",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://belka-s.github.io/parcel_start_kit",
+  "homepage": "https://belka-s.github.io/goit-js-hw-09",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel_start_kit/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
