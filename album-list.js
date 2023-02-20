@@ -1,0 +1,43 @@
+const albumList = {
+  normalizeAlbum() {},
+  album: [
+    {
+      band: 'Depeche Mode',
+      title: 'viOLator',
+      year: 1990,
+      genre: 'electronic',
+      rating: 8,
+      tracks: [
+        'World In my eyes',
+        'Sweetest Perfection',
+        'Personal Jesus',
+        'Halo',
+        'Waiting FOR the night',
+        'Enjoy the Silence',
+        'Policy of Truth',
+        'Blue Dress',
+        'Clean',
+      ],
+    },
+    {
+      band: 'Depeche Mode',
+      title: 'Songs of Faith and Devotion',
+      year: 1993,
+      genre: 'rock',
+      rating: 5,
+      tracks: [
+        'I Feel You',
+        'Walking in My Shoes',
+        'Condemnation',
+        'Mercy in You',
+        'Judas',
+        'In Your Room',
+        'Get Right with Me',
+        'Interlude #4 (My Kingdom Comes)',
+        'Rush',
+        'One Caress',
+        'Higher Love',
+      ],
+    },
+  ],
+};
