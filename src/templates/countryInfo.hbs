@@ -1,0 +1,49 @@
+<p class='country-list__key'>Official name:
+  <span class='country-list__value'>
+    {{name.official}}
+    {{#unless name.official}}
+      {{name.common}}
+    {{/unless}}
+  </span>
+</p>
+
+<p class='country-list__key'>Capital:
+  <span class='country-list__value'>{{capital}}</span>
+</p>
+
+<p class='country-list__key'>Languages:
+  {{#each languages}}
+    {{#unless @last}}
+      <span class='country-list__value'>{{this}},</span>
+    {{/unless}}
+    {{#if @last}}
+      <span class='country-list__value'>{{this}}</span>
+    {{/if}}
+  {{/each}}
+</p>
+
+<p class='country-list__key'>Currency:
+  {{#each currencies}}
+    {{#unless @last}}
+      <span class='country-list__value'>{{this.name}},</span>
+    {{/unless}}
+    {{#if @last}}
+      <span class='country-list__value'>{{this.name}}</span>
+    {{/if}}
+  {{/each}}
+</p>
+
+<p class='country-list__key'>Population:
+  <span class='country-list__value'>{{population}}</span>
+</p>
+
+<p class='country-list__key'>Area:
+  <span class='country-list__value'>{{area}}</span>
+</p>
+
+<a
+  class='country-list__link'
+  href='{{maps.googleMaps}}'
+  target='_blank'
+  rel='noopener noreferrer nofollow'
+>Google Map</a>

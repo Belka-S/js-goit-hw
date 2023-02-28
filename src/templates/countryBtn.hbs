@@ -1,0 +1,17 @@
+<li class='country'>
+  <div class='country__btn'>
+    <img
+      class='country__flag'
+      data-pick='{{name.common}}'
+      src='{{flags.svg}}'
+      width='60'
+      alt='flag'
+    />
+    <p data-pick='{{name.common}}'>
+      {{name.common}}
+      {{#if name.official}}
+        ({{name.official}})
+      {{/if}}
+    </p>
+  </div>
+</li>
