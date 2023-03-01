@@ -1,12 +1,12 @@
 const BASE_URL = 'https://restcountries.com/v3.1/name';
 const properties = [
-  'name',
   'flags',
+  'name',
   'capital',
-  'population',
-  'area',
   'languages',
   'currencies',
+  'population',
+  'area',
   'maps',
 ];
 
@@ -20,6 +20,26 @@ export function fetchCountries(name) {
     return response.json();
   });
 }
+
+export const normalizeData = data =>
+  data.map(el => {
+    const ifDifferent = el.name.common === el.name.official ? false : true;
+
+    return {
+      flag: el.flags.svg,
+      name: {
+        common: el.name.common,
+        official: el.name.official,
+        different: ifDifferent,
+      },
+      capital: el.capital,
+      languages: el.languages,
+      currency: el.currencies,
+      population: roundPeople(el.population),
+      area: roundArea(el.area),
+      map: el.maps.googleMaps,
+    };
+  });
 
 export function roundPeople(number) {
   return number > 1000000

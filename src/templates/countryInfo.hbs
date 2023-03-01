@@ -23,7 +23,7 @@
 </p>
 
 <p class='country-list__key'>Currency:
-  {{#each currencies}}
+  {{#each currency}}
     {{#unless @last}}
       <span class='country-list__value'>{{this.name}},</span>
     {{/unless}}
@@ -43,7 +43,7 @@
 
 <a
   class='country-list__link'
-  href='{{maps.googleMaps}}'
+  href='{{map}}'
   target='_blank'
   rel='noopener noreferrer nofollow'
 >Google Map</a>
