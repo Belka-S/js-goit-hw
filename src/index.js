@@ -23,7 +23,6 @@ function onSearch(e) {
 
 function renderCountryMarkup(data) {
   const normData = normalizeData(data);
-  console.log(normData);
 
   const btnMarkup = normData.reduce((acc, el) => acc + btnMarkupFn(el), '');
   const listMarkup = normData.reduce((acc, el) => acc + listMarkupFn(el), '');
